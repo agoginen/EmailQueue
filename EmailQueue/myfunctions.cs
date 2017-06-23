@@ -12,7 +12,7 @@ namespace EmailQueue
     {
         protected DiversityTraxEntities db;
 
-        public   Queue<object> enqueue()
+        public   Queue<emailQueue> enqueue()
         {
             db = new DiversityTraxEntities();
  
@@ -21,7 +21,7 @@ namespace EmailQueue
 
             data.Sort();
 
-            var orderedRequests = new Queue<Object>();
+            Queue<emailQueue> orderedRequests = new Queue<emailQueue>();
 
             for (int i = 0; i < data.Count; i++)
             { 
@@ -31,7 +31,7 @@ namespace EmailQueue
             return orderedRequests;
         }
 
-        public void dequeue(Queue<object> data)
+        public void dequeue(Queue<emailQueue> data)
         {
             db = new DiversityTraxEntities();
 
@@ -39,9 +39,11 @@ namespace EmailQueue
 
             Queue<emailQueue> sentMails = new Queue<emailQueue>();
 
-            int k = 0;
+            int successMessageCount = 0;
 
-            for (int i = 0; i < data.Count; i++)
+            int totalRequests = data.Count;
+
+            for (int i = 0; i < totalRequests; i++)
             {
                 emailQueue emailDetails = (emailQueue)data.Dequeue();
 
@@ -57,45 +59,29 @@ namespace EmailQueue
                 {
                     smtp.Send(mail);
 
-                    //emailQueue temp;
+                    emailDetails.Tries = (int)emailDetails.Tries + 1;
 
-                    //temp = emailDetails;
+                    db.Entry(emailDetails).State = EntityState.Modified;
 
-                    k = (int)emailDetails.Tries + 1;
-
-                    emailDetails.Tries = k;
-
-                   db.Entry(emailDetails).State = EntityState.Modified;
-
-                   db.SaveChanges();
-                    //db.Entry(emailDetails).Property(x => x.Tries).IsModified = true;
-
-                    //db.Entry(emailDetails).Property(x => x.Tries).CurrentValue = k;
-
-                    // db.Entry(emailDetails).CurrentValues.SetValues();
-                    //db.Entry(emailDetails).State = EntityState.Modified;
-
-                    //db.SaveChanges();
+                    db.SaveChanges();
 
                     sentMails.Enqueue(emailDetails);
                 }
                 catch
                 {
-                    //emailDetails.Tries = (int)emailDetails.Tries + 1;
-
-                    //db.Entry(emailDetails).State = EntityState.Modified;
-
-                    //db.SaveChanges();
-                  
+                    emailDetails.Tries =  (int)emailDetails.Tries + 1;
 
                     db.Entry(emailDetails).State = EntityState.Modified;
 
                     db.SaveChanges();
+                    
                     failedMails.Enqueue(emailDetails);
                 }
             }
 
-            for (int i = 0; i < sentMails.Count; i++)
+            successMessageCount = sentMails.Count;
+
+            for (int i = 0; i < successMessageCount; i++)
             {
                 emailQueue currMail = (emailQueue)sentMails.Dequeue();
 

@@ -8,8 +8,8 @@ namespace EmailQueue.Models
 {
     interface Ienqueue
     {
-        Queue<object> enqueue();
+        Queue<emailQueue> enqueue();
 
-        void dequeue(Queue<object> data);
+        void dequeue(Queue<emailQueue> data);
     }
 }

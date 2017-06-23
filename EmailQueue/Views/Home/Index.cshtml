@@ -41,7 +41,12 @@
             <th>
                 Tries
             </th>
-            <th></th>
+            <th>
+                Date
+            </th>
+            <th>
+                Time
+            </th>
         </tr>
     </thead>
 
@@ -73,9 +78,10 @@
                 @Html.DisplayFor(modelItem => item.Tries)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.DisplayFor(modelItem => item.EDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ETime)
             </td>
         </tr>
     }

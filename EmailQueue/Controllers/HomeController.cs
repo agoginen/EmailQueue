@@ -28,7 +28,7 @@ namespace EmailQueue.Controllers
 
             myfunctions myqueue = new myfunctions();
 
-            var passData = new Queue<object>();
+            Queue<emailQueue> passData = new Queue<emailQueue>();
 
             passData = myqueue.enqueue();
 

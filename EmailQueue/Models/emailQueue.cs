@@ -23,15 +23,18 @@ namespace EmailQueue.Models
         public int EPriority { get; set; }
         public string EStatus { get; set; }
         public int Tries { get; set; }
+        public System.DateTime EDate { get; set; }
+        public System.TimeSpan ETime { get; set; }
 
-        public int CompareTo(emailQueue cmp)
+        public int CompareTo(emailQueue other)
         {
-            if (this.EPriority > cmp.EPriority)
+            if (this.EPriority > other.EPriority)
                 return 1;
-            else if (this.EPriority < cmp.EPriority)
+            else if (this.EPriority < other.EPriority)
                 return -1;
             else
                 return 0;
         }
     }
+
 }

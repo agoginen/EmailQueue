@@ -18,6 +18,8 @@
           <Property Name="EPriority" Type="int" />
           <Property Name="EStatus" Type="nvarchar" MaxLength="50" />
           <Property Name="Tries" Type="int" />
+          <Property Name="EDate" Type="date" />
+          <Property Name="ETime" Type="time" Precision="7" />
         </EntityType>
         <EntityContainer Name="DiversityTraxModelStoreContainer">
           <EntitySet Name="emailQueue" EntityType="Self.emailQueue" Schema="dbo" store:Type="Tables" />
@@ -42,6 +44,8 @@
           <Property Name="EPriority" Type="Int32" />
           <Property Name="EStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tries" Type="Int32" />
+          <Property Name="EDate" Type="DateTime" Precision="0" />
+          <Property Name="ETime" Type="Time" Precision="7" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -52,6 +56,8 @@
           <EntitySetMapping Name="emailQueues">
             <EntityTypeMapping TypeName="DiversityTraxModel.emailQueue">
               <MappingFragment StoreEntitySet="emailQueue">
+                <ScalarProperty Name="ETime" ColumnName="ETime" />
+                <ScalarProperty Name="EDate" ColumnName="EDate" />
                 <ScalarProperty Name="Tries" ColumnName="Tries" />
                 <ScalarProperty Name="EStatus" ColumnName="EStatus" />
                 <ScalarProperty Name="EPriority" ColumnName="EPriority" />
