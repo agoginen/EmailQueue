@@ -21,8 +21,30 @@
           <Property Name="EDate" Type="date" />
           <Property Name="ETime" Type="time" Precision="7" />
         </EntityType>
+        <EntityType Name="emailQueueFailedLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ETo" Type="nvarchar(max)" />
+          <Property Name="Tries" Type="int" />
+          <Property Name="EDate" Type="date" />
+          <Property Name="ETime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="emailQueueSuccessfulLogs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ETo" Type="nvarchar(max)" />
+          <Property Name="Tries" Type="int" />
+          <Property Name="EDate" Type="date" />
+          <Property Name="ETime" Type="time" Precision="7" />
+        </EntityType>
         <EntityContainer Name="DiversityTraxModelStoreContainer">
           <EntitySet Name="emailQueue" EntityType="Self.emailQueue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emailQueueFailedLog" EntityType="Self.emailQueueFailedLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emailQueueSuccessfulLogs" EntityType="Self.emailQueueSuccessfulLogs" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -30,6 +52,8 @@
       <Schema Namespace="DiversityTraxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DiversityTraxEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="emailQueues" EntityType="DiversityTraxModel.emailQueue" />
+          <EntitySet Name="emailQueueFailedLog" EntityType="DiversityTraxModel.emailQueueFailedLog" />
+          <EntitySet Name="emailQueueSuccessfulLogs" EntityType="DiversityTraxModel.emailQueueSuccessfulLogs" />
         </EntityContainer>
         <EntityType Name="emailQueue">
           <Key>
@@ -43,6 +67,26 @@
           <Property Name="EBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EPriority" Type="Int32" />
           <Property Name="EStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tries" Type="Int32" />
+          <Property Name="EDate" Type="DateTime" Precision="0" />
+          <Property Name="ETime" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="emailQueueFailedLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ETo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tries" Type="Int32" />
+          <Property Name="EDate" Type="DateTime" Precision="0" />
+          <Property Name="ETime" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="emailQueueSuccessfulLogs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ETo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Tries" Type="Int32" />
           <Property Name="EDate" Type="DateTime" Precision="0" />
           <Property Name="ETime" Type="Time" Precision="7" />
@@ -70,6 +114,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="emailQueueFailedLog">
+            <EntityTypeMapping TypeName="DiversityTraxModel.emailQueueFailedLog">
+              <MappingFragment StoreEntitySet="emailQueueFailedLog">
+                <ScalarProperty Name="ETime" ColumnName="ETime" />
+                <ScalarProperty Name="EDate" ColumnName="EDate" />
+                <ScalarProperty Name="Tries" ColumnName="Tries" />
+                <ScalarProperty Name="ETo" ColumnName="ETo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emailQueueSuccessfulLogs">
+            <EntityTypeMapping TypeName="DiversityTraxModel.emailQueueSuccessfulLogs">
+              <MappingFragment StoreEntitySet="emailQueueSuccessfulLogs">
+                <ScalarProperty Name="ETime" ColumnName="ETime" />
+                <ScalarProperty Name="EDate" ColumnName="EDate" />
+                <ScalarProperty Name="Tries" ColumnName="Tries" />
+                <ScalarProperty Name="ETo" ColumnName="ETo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -84,7 +150,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

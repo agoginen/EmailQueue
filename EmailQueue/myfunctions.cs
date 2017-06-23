@@ -41,7 +41,13 @@ namespace EmailQueue
 
             int successMessageCount = 0;
 
+            int failMessageCount = 0;
+
             int totalRequests = data.Count;
+
+            emailQueueSuccessfulLogs updateSuccessLog = new emailQueueSuccessfulLogs();
+
+            emailQueueFailedLog updatefailedLog = new emailQueueFailedLog();
 
             for (int i = 0; i < totalRequests; i++)
             {
@@ -81,13 +87,45 @@ namespace EmailQueue
 
             successMessageCount = sentMails.Count;
 
+            failMessageCount = failedMails.Count;
+
             for (int i = 0; i < successMessageCount; i++)
             {
                 emailQueue currMail = (emailQueue)sentMails.Dequeue();
 
                 currMail.EStatus = "Posted";
 
+                updateSuccessLog.ETo = currMail.ETo;
+
+                updateSuccessLog.EDate = currMail.EDate;
+
+                updateSuccessLog.ETime = currMail.ETime;
+
+                updateSuccessLog.Tries = currMail.Tries;
+
                 db.Entry(currMail).State = EntityState.Modified;
+
+                db.SaveChanges();
+
+                db.emailQueueSuccessfulLogs.Add(updateSuccessLog);
+
+                db.SaveChanges();
+
+            }
+
+            for (int i = 0; i < failMessageCount; i++)
+            {
+                emailQueue currMail = (emailQueue)failedMails.Dequeue();
+
+                updatefailedLog.ETo = currMail.ETo;
+
+                updatefailedLog.EDate = currMail.EDate;
+
+                updatefailedLog.ETime = currMail.ETime;
+
+                updatefailedLog.Tries = currMail.Tries;
+
+                db.emailQueueFailedLog.Add(updatefailedLog);
 
                 db.SaveChanges();
             }

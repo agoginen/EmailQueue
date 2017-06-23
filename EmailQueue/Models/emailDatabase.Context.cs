@@ -26,5 +26,7 @@ namespace EmailQueue.Models
         }
     
         public virtual DbSet<emailQueue> emailQueues { get; set; }
+        public virtual DbSet<emailQueueFailedLog> emailQueueFailedLog { get; set; }
+        public virtual DbSet<emailQueueSuccessfulLogs> emailQueueSuccessfulLogs { get; set; }
     }
 }
