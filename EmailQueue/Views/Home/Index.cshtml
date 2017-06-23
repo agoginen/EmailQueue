@@ -1,0 +1,82 @@
+﻿@using EmailQueue.Models;
+
+@model IEnumerable<EmailQueue.Models.emailQueue>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Ordered According to Priority</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<button type="button" onclick="location.href='@Url.Action("Mail","Home")'"> Send Mails</button>
+
+<table class="table table-hover">
+    <thead class="thead-default">
+        <tr>
+            <th>
+                From Email
+            </th>
+            <th>
+                To Email
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                CC
+            </th>
+            <th>
+                Message
+            </th>
+            <th>
+                Priority
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Tries
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ETo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESubject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EPriority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tries)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>
