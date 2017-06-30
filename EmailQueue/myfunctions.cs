@@ -33,6 +33,14 @@ namespace EmailQueue
 
         public int dequeue(Queue<emailQueue> data)
         {
+            var bodySearch = "<div id=\"EBody\">";
+
+            var subjectSearch = "<div id=\"ESubject\">";
+
+            var reasonSearch = "<div id=\"EReason\">";
+
+            var clientName = "<div id=\"EClientName\">";
+
             db = new DiversityTraxEntities();
 
             Queue<emailQueue> failedMails = new Queue<emailQueue>();
@@ -53,10 +61,22 @@ namespace EmailQueue
             {
                 emailQueue emailDetails = (emailQueue)data.Dequeue();
 
+                Templates presentTemplate = new Templates();
+
+                presentTemplate = db.Templates.Find(emailDetails.TableId);
+
+                var modifiedBody = presentTemplate.Template_Content.Insert(presentTemplate.Template_Content.IndexOf(bodySearch) + bodySearch.Length, emailDetails.EBody);
+
+                modifiedBody = modifiedBody.Insert(presentTemplate.Template_Content.IndexOf(subjectSearch) + subjectSearch.Length, emailDetails.ESubject);
+
+                modifiedBody = modifiedBody.Insert(presentTemplate.Template_Content.IndexOf(reasonSearch) + reasonSearch.Length, emailDetails.EReason);
+
+                modifiedBody = modifiedBody.Insert(presentTemplate.Template_Content.IndexOf(clientName) + clientName.Length, emailDetails.EName);
+
                 MailMessage mail = new MailMessage();
                 mail.To.Add(emailDetails.ETo);
                 mail.Subject = emailDetails.ESubject;
-                mail.Body = emailDetails.EBody;
+                mail.Body = modifiedBody;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
                 smtp.EnableSsl = true;

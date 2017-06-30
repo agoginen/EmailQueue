@@ -21,6 +21,8 @@
           <Property Name="EDate" Type="date" />
           <Property Name="ETime" Type="time" Precision="7" />
           <Property Name="TableId" Type="int" />
+          <Property Name="EReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="EName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="emailQueueFailedLog">
           <Key>
@@ -63,8 +65,8 @@
         <EntityContainer Name="DiversityTraxEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="emailQueueFailedLog" EntityType="DiversityTraxModel.emailQueueFailedLog" />
           <EntitySet Name="emailQueueSuccessfulLogs" EntityType="DiversityTraxModel.emailQueueSuccessfulLogs" />
-          <EntitySet Name="emailQueue" EntityType="DiversityTraxModel.emailQueue" />
           <EntitySet Name="Templates" EntityType="DiversityTraxModel.Templates" />
+          <EntitySet Name="emailQueue" EntityType="DiversityTraxModel.emailQueue" />
         </EntityContainer>
         <EntityType Name="emailQueueFailedLog">
           <Key>
@@ -86,6 +88,14 @@
           <Property Name="EDate" Type="DateTime" Precision="0" />
           <Property Name="ETime" Type="Time" Precision="7" />
         </EntityType>
+        <EntityType Name="Templates">
+          <Key>
+            <PropertyRef Name="Template_Id" />
+          </Key>
+          <Property Name="Template_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Template_Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="emailQueue">
           <Key>
             <PropertyRef Name="ID" />
@@ -102,14 +112,8 @@
           <Property Name="EDate" Type="DateTime" Precision="0" />
           <Property Name="ETime" Type="Time" Precision="7" />
           <Property Name="TableId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Templates">
-          <Key>
-            <PropertyRef Name="Template_Id" />
-          </Key>
-          <Property Name="Template_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Template_Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -139,9 +143,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Templates">
+            <EntityTypeMapping TypeName="DiversityTraxModel.Templates">
+              <MappingFragment StoreEntitySet="Templates">
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Template_Content" ColumnName="Template Content" />
+                <ScalarProperty Name="Template_Id" ColumnName="Template Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="emailQueue">
             <EntityTypeMapping TypeName="DiversityTraxModel.emailQueue">
               <MappingFragment StoreEntitySet="emailQueue">
+                <ScalarProperty Name="EName" ColumnName="EName" />
+                <ScalarProperty Name="EReason" ColumnName="EReason" />
                 <ScalarProperty Name="TableId" ColumnName="TableId" />
                 <ScalarProperty Name="ETime" ColumnName="ETime" />
                 <ScalarProperty Name="EDate" ColumnName="EDate" />
@@ -154,15 +169,6 @@
                 <ScalarProperty Name="ETo" ColumnName="ETo" />
                 <ScalarProperty Name="EFrom" ColumnName="EFrom" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Templates">
-            <EntityTypeMapping TypeName="DiversityTraxModel.Templates">
-              <MappingFragment StoreEntitySet="Templates">
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="Template_Content" ColumnName="Template Content" />
-                <ScalarProperty Name="Template_Id" ColumnName="Template Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -20,12 +20,14 @@ namespace EmailQueue.Models
         public string ESubject { get; set; }
         public string CC { get; set; }
         public string EBody { get; set; }
-        public int EPriority { get; set; }
+        public Nullable<int> EPriority { get; set; }
         public string EStatus { get; set; }
-        public int Tries { get; set; }
-        public System.DateTime EDate { get; set; }
-        public System.TimeSpan ETime { get; set; }
-        public int TableId { get; set; }
+        public Nullable<int> Tries { get; set; }
+        public Nullable<System.DateTime> EDate { get; set; }
+        public Nullable<System.TimeSpan> ETime { get; set; }
+        public Nullable<int> TableId { get; set; }
+        public string EReason { get; set; }
+        public string EName { get; set; }
 
         public int CompareTo(emailQueue other)
         {

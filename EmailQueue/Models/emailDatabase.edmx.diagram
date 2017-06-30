@@ -7,8 +7,8 @@
       <Diagram DiagramId="79802a99d6d2480f9ee4b22a6e012078" Name="Diagram1">
         <EntityTypeShape EntityType="DiversityTraxModel.emailQueueFailedLog" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="DiversityTraxModel.emailQueueSuccessfulLogs" Width="1.5" PointX="3.375" PointY="3.75" />
-        <EntityTypeShape EntityType="DiversityTraxModel.emailQueue" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DiversityTraxModel.Templates" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DiversityTraxModel.emailQueue" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
