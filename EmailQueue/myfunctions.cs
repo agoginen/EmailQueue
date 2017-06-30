@@ -16,7 +16,7 @@ namespace EmailQueue
         {
             db = new DiversityTraxEntities();
  
-            var data = db.emailQueues.Where(x => x.EStatus == "Not Posted").ToList();
+            var data = db.emailQueue.Where(x => x.EStatus == "Not Posted").ToList();
             //var data = db.emailQueues.Where(x => x.EStatus == "Not Posted").Take(30).ToList();
 
             data.Sort();

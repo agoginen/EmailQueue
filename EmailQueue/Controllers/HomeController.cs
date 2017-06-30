@@ -15,7 +15,7 @@ namespace EmailQueue.Controllers
         {
             db = new DiversityTraxEntities();
 
-            var data = db.emailQueues.ToList();
+            var data = db.emailQueue.ToList();
 
             data.Sort();
 
