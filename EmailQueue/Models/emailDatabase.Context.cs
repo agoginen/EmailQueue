@@ -25,8 +25,9 @@ namespace EmailQueue.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<emailQueue> emailQueues { get; set; }
         public virtual DbSet<emailQueueFailedLog> emailQueueFailedLog { get; set; }
         public virtual DbSet<emailQueueSuccessfulLogs> emailQueueSuccessfulLogs { get; set; }
+        public virtual DbSet<emailQueue> emailQueue { get; set; }
+        public virtual DbSet<Templates> Templates { get; set; }
     }
 }

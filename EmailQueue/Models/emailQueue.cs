@@ -12,7 +12,7 @@ namespace EmailQueue.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class emailQueue
+    public partial class emailQueue : IComparable<emailQueue>
     {
         public int ID { get; set; }
         public string EFrom { get; set; }
@@ -26,5 +26,15 @@ namespace EmailQueue.Models
         public Nullable<System.DateTime> EDate { get; set; }
         public Nullable<System.TimeSpan> ETime { get; set; }
         public Nullable<int> TableId { get; set; }
+
+        public int CompareTo(emailQueue other)
+        {
+            if (this.EPriority > other.EPriority)
+                return 1;
+            else if (this.EPriority < other.EPriority)
+                return -1;
+            else
+                return 0;
+        }
     }
 }
