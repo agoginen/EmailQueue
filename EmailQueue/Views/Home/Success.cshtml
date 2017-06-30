@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EmailQueue.Models.emailQueueSuccessfulLogs>
+
+@{
+    ViewBag.Title = "Success";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ETo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tries)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ETime)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ETo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tries)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ETime)
+        </td>
+    </tr>
+}
+
+</table>

@@ -20,6 +20,7 @@
           <Property Name="Tries" Type="int" />
           <Property Name="EDate" Type="date" />
           <Property Name="ETime" Type="time" Precision="7" />
+          <Property Name="TableId" Type="int" />
         </EntityType>
         <EntityType Name="emailQueueFailedLog">
           <Key>
@@ -41,20 +42,50 @@
           <Property Name="EDate" Type="date" />
           <Property Name="ETime" Type="time" Precision="7" />
         </EntityType>
+        <EntityType Name="Templates">
+          <Key>
+            <PropertyRef Name="Template Id" />
+          </Key>
+          <Property Name="Template Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Template Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DiversityTraxModelStoreContainer">
           <EntitySet Name="emailQueue" EntityType="Self.emailQueue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="emailQueueFailedLog" EntityType="Self.emailQueueFailedLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="emailQueueSuccessfulLogs" EntityType="Self.emailQueueSuccessfulLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Templates" EntityType="Self.Templates" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DiversityTraxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DiversityTraxEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="emailQueues" EntityType="DiversityTraxModel.emailQueue" />
           <EntitySet Name="emailQueueFailedLog" EntityType="DiversityTraxModel.emailQueueFailedLog" />
           <EntitySet Name="emailQueueSuccessfulLogs" EntityType="DiversityTraxModel.emailQueueSuccessfulLogs" />
+          <EntitySet Name="emailQueue" EntityType="DiversityTraxModel.emailQueue" />
+          <EntitySet Name="Templates" EntityType="DiversityTraxModel.Templates" />
         </EntityContainer>
+        <EntityType Name="emailQueueFailedLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ETo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tries" Type="Int32" />
+          <Property Name="EDate" Type="DateTime" Precision="0" />
+          <Property Name="ETime" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="emailQueueSuccessfulLogs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ETo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tries" Type="Int32" />
+          <Property Name="EDate" Type="DateTime" Precision="0" />
+          <Property Name="ETime" Type="Time" Precision="7" />
+        </EntityType>
         <EntityType Name="emailQueue">
           <Key>
             <PropertyRef Name="ID" />
@@ -70,26 +101,15 @@
           <Property Name="Tries" Type="Int32" />
           <Property Name="EDate" Type="DateTime" Precision="0" />
           <Property Name="ETime" Type="Time" Precision="7" />
+          <Property Name="TableId" Type="Int32" />
         </EntityType>
-        <EntityType Name="emailQueueFailedLog">
+        <EntityType Name="Templates">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Template_Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ETo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tries" Type="Int32" />
-          <Property Name="EDate" Type="DateTime" Precision="0" />
-          <Property Name="ETime" Type="Time" Precision="7" />
-        </EntityType>
-        <EntityType Name="emailQueueSuccessfulLogs">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ETo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tries" Type="Int32" />
-          <Property Name="EDate" Type="DateTime" Precision="0" />
-          <Property Name="ETime" Type="Time" Precision="7" />
+          <Property Name="Template_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Template_Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -97,23 +117,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DiversityTraxModelStoreContainer" CdmEntityContainer="DiversityTraxEntities">
-          <EntitySetMapping Name="emailQueues">
-            <EntityTypeMapping TypeName="DiversityTraxModel.emailQueue">
-              <MappingFragment StoreEntitySet="emailQueue">
-                <ScalarProperty Name="ETime" ColumnName="ETime" />
-                <ScalarProperty Name="EDate" ColumnName="EDate" />
-                <ScalarProperty Name="Tries" ColumnName="Tries" />
-                <ScalarProperty Name="EStatus" ColumnName="EStatus" />
-                <ScalarProperty Name="EPriority" ColumnName="EPriority" />
-                <ScalarProperty Name="EBody" ColumnName="EBody" />
-                <ScalarProperty Name="CC" ColumnName="CC" />
-                <ScalarProperty Name="ESubject" ColumnName="ESubject" />
-                <ScalarProperty Name="ETo" ColumnName="ETo" />
-                <ScalarProperty Name="EFrom" ColumnName="EFrom" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="emailQueueFailedLog">
             <EntityTypeMapping TypeName="DiversityTraxModel.emailQueueFailedLog">
               <MappingFragment StoreEntitySet="emailQueueFailedLog">
@@ -133,6 +136,33 @@
                 <ScalarProperty Name="Tries" ColumnName="Tries" />
                 <ScalarProperty Name="ETo" ColumnName="ETo" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emailQueue">
+            <EntityTypeMapping TypeName="DiversityTraxModel.emailQueue">
+              <MappingFragment StoreEntitySet="emailQueue">
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="ETime" ColumnName="ETime" />
+                <ScalarProperty Name="EDate" ColumnName="EDate" />
+                <ScalarProperty Name="Tries" ColumnName="Tries" />
+                <ScalarProperty Name="EStatus" ColumnName="EStatus" />
+                <ScalarProperty Name="EPriority" ColumnName="EPriority" />
+                <ScalarProperty Name="EBody" ColumnName="EBody" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="ESubject" ColumnName="ESubject" />
+                <ScalarProperty Name="ETo" ColumnName="ETo" />
+                <ScalarProperty Name="EFrom" ColumnName="EFrom" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Templates">
+            <EntityTypeMapping TypeName="DiversityTraxModel.Templates">
+              <MappingFragment StoreEntitySet="Templates">
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Template_Content" ColumnName="Template Content" />
+                <ScalarProperty Name="Template_Id" ColumnName="Template Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

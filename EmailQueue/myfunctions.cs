@@ -31,7 +31,7 @@ namespace EmailQueue
             return orderedRequests;
         }
 
-        public void dequeue(Queue<emailQueue> data)
+        public int dequeue(Queue<emailQueue> data)
         {
             db = new DiversityTraxEntities();
 
@@ -129,6 +129,8 @@ namespace EmailQueue
 
                 db.SaveChanges();
             }
+
+            return successMessageCount;
         }
     }
 }

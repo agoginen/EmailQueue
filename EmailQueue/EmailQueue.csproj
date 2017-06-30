@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,39 +44,102 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.3.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.3.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.3.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    <Reference Include="Microsoft.AI.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.3.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.3.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,19 +195,13 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="WebGrease">
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -162,33 +219,6 @@
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +343,8 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -329,8 +361,6 @@
       <DependentUpon>emailDatabase.edmx</DependentUpon>
       <LastGenOutput>emailDatabase.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -346,18 +376,379 @@
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cultures\kendo.culture.zh-CN.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\kendo.all.min.js" />
+    <Content Include="Scripts\kendo.combobox.editable.min.js" />
+    <Content Include="Scripts\kendo.content.editor.min.js" />
+    <Content Include="Scripts\kendo.data.odata.editable.min.js" />
+    <Content Include="Scripts\kendo.dropdownlist.editable.min.js" />
+    <Content Include="Scripts\kendo.grid.editable.min.js" />
+    <Content Include="Scripts\kendo.multiselect.editable.min.js" />
+    <Content Include="Scripts\kendo.resource.editor.min.js" />
+    <Content Include="Scripts\kendo.theme.chooser.min.js" />
+    <Content Include="Scripts\kendo.upload.editable.min.js" />
+    <Content Include="Scripts\messages\kendo.messages.zh-CN.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="styles\Black\editor.png" />
+    <Content Include="styles\Black\imagebrowser.png" />
+    <Content Include="styles\Black\indeterminate.gif" />
+    <Content Include="styles\Black\loading-image.gif" />
+    <Content Include="styles\Black\loading.gif" />
+    <Content Include="styles\Black\loading_2x.gif" />
+    <Content Include="styles\Black\markers.png" />
+    <Content Include="styles\Black\markers_2x.png" />
+    <Content Include="styles\Black\slider-h.gif" />
+    <Content Include="styles\Black\slider-v.gif" />
+    <Content Include="styles\Black\sprite.png" />
+    <Content Include="styles\Black\sprite_2x.png" />
+    <Content Include="styles\Black\sprite_kpi.png" />
+    <Content Include="styles\Black\sprite_kpi_2x.png" />
+    <Content Include="styles\BlueOpal\editor.png" />
+    <Content Include="styles\BlueOpal\imagebrowser.png" />
+    <Content Include="styles\BlueOpal\indeterminate.gif" />
+    <Content Include="styles\BlueOpal\loading-image.gif" />
+    <Content Include="styles\BlueOpal\loading.gif" />
+    <Content Include="styles\BlueOpal\loading_2x.gif" />
+    <Content Include="styles\BlueOpal\markers.png" />
+    <Content Include="styles\BlueOpal\markers_2x.png" />
+    <Content Include="styles\BlueOpal\slider-h.gif" />
+    <Content Include="styles\BlueOpal\slider-v.gif" />
+    <Content Include="styles\BlueOpal\sprite.png" />
+    <Content Include="styles\BlueOpal\sprite_2x.png" />
+    <Content Include="styles\BlueOpal\sprite_kpi.png" />
+    <Content Include="styles\BlueOpal\sprite_kpi_2x.png" />
+    <Content Include="styles\Bootstrap\editor.png" />
+    <Content Include="styles\Bootstrap\imagebrowser.png" />
+    <Content Include="styles\Bootstrap\indeterminate.gif" />
+    <Content Include="styles\Bootstrap\loading-image.gif" />
+    <Content Include="styles\Bootstrap\loading.gif" />
+    <Content Include="styles\Bootstrap\loading_2x.gif" />
+    <Content Include="styles\Bootstrap\markers.png" />
+    <Content Include="styles\Bootstrap\markers_2x.png" />
+    <Content Include="styles\Bootstrap\slider-h.gif" />
+    <Content Include="styles\Bootstrap\slider-v.gif" />
+    <Content Include="styles\Bootstrap\sprite.png" />
+    <Content Include="styles\Bootstrap\sprite_2x.png" />
+    <Content Include="styles\Bootstrap\sprite_kpi.png" />
+    <Content Include="styles\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="styles\Default\editor.png" />
+    <Content Include="styles\Default\imagebrowser.png" />
+    <Content Include="styles\Default\indeterminate.gif" />
+    <Content Include="styles\Default\loading-image.gif" />
+    <Content Include="styles\Default\loading.gif" />
+    <Content Include="styles\Default\loading_2x.gif" />
+    <Content Include="styles\Default\markers.png" />
+    <Content Include="styles\Default\markers_2x.png" />
+    <Content Include="styles\Default\slider-h.gif" />
+    <Content Include="styles\Default\slider-v.gif" />
+    <Content Include="styles\Default\sprite.png" />
+    <Content Include="styles\Default\sprite_2x.png" />
+    <Content Include="styles\Default\sprite_kpi.png" />
+    <Content Include="styles\Default\sprite_kpi_2x.png" />
+    <Content Include="styles\Fiori\editor.png" />
+    <Content Include="styles\Fiori\imagebrowser.png" />
+    <Content Include="styles\Fiori\indeterminate.gif" />
+    <Content Include="styles\Fiori\loading-image.gif" />
+    <Content Include="styles\Fiori\loading.gif" />
+    <Content Include="styles\Fiori\loading_2x.gif" />
+    <Content Include="styles\Fiori\markers.png" />
+    <Content Include="styles\Fiori\markers_2x.png" />
+    <Content Include="styles\Fiori\slider-h.gif" />
+    <Content Include="styles\Fiori\slider-v.gif" />
+    <Content Include="styles\Fiori\sprite.png" />
+    <Content Include="styles\Fiori\sprite_2x.png" />
+    <Content Include="styles\Fiori\sprite_kpi.png" />
+    <Content Include="styles\Fiori\sprite_kpi_2x.png" />
+    <Content Include="styles\Flat\editor.png" />
+    <Content Include="styles\Flat\imagebrowser.png" />
+    <Content Include="styles\Flat\indeterminate.gif" />
+    <Content Include="styles\Flat\loading-image.gif" />
+    <Content Include="styles\Flat\loading.gif" />
+    <Content Include="styles\Flat\loading_2x.gif" />
+    <Content Include="styles\Flat\markers.png" />
+    <Content Include="styles\Flat\markers_2x.png" />
+    <Content Include="styles\Flat\slider-h.gif" />
+    <Content Include="styles\Flat\slider-v.gif" />
+    <Content Include="styles\Flat\sprite.png" />
+    <Content Include="styles\Flat\sprite_2x.png" />
+    <Content Include="styles\Flat\sprite_kpi.png" />
+    <Content Include="styles\Flat\sprite_kpi_2x.png" />
+    <Content Include="styles\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="styles\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="styles\HighContrast\editor.png" />
+    <Content Include="styles\HighContrast\imagebrowser.png" />
+    <Content Include="styles\HighContrast\indeterminate.gif" />
+    <Content Include="styles\HighContrast\loading-image.gif" />
+    <Content Include="styles\HighContrast\loading.gif" />
+    <Content Include="styles\HighContrast\loading_2x.gif" />
+    <Content Include="styles\HighContrast\markers.png" />
+    <Content Include="styles\HighContrast\markers_2x.png" />
+    <Content Include="styles\HighContrast\slider-h.gif" />
+    <Content Include="styles\HighContrast\slider-v.gif" />
+    <Content Include="styles\HighContrast\sprite.png" />
+    <Content Include="styles\HighContrast\sprite_2x.png" />
+    <Content Include="styles\HighContrast\sprite_kpi.png" />
+    <Content Include="styles\HighContrast\sprite_kpi_2x.png" />
+    <Content Include="styles\images\back.png" />
+    <Content Include="styles\images\kendoui.svg" />
+    <Content Include="styles\images\wp8_icons.png" />
+    <Content Include="styles\images\wp8_inverseicons.png" />
+    <Content Include="styles\kendo.black.min.css" />
+    <Content Include="styles\kendo.black.mobile.min.css" />
+    <Content Include="styles\kendo.blueopal.min.css" />
+    <Content Include="styles\kendo.blueopal.mobile.min.css" />
+    <Content Include="styles\kendo.bootstrap.min.css" />
+    <Content Include="styles\kendo.bootstrap.mobile.min.css" />
+    <Content Include="styles\kendo.common-bootstrap.core.min.css" />
+    <Content Include="styles\kendo.common-bootstrap.min.css" />
+    <Content Include="styles\kendo.common-fiori.min.css" />
+    <Content Include="styles\kendo.common-material.core.min.css" />
+    <Content Include="styles\kendo.common-material.min.css" />
+    <Content Include="styles\kendo.common-nova.core.min.css" />
+    <Content Include="styles\kendo.common-nova.min.css" />
+    <Content Include="styles\kendo.common-office365.min.css" />
+    <Content Include="styles\kendo.common.core.min.css" />
+    <Content Include="styles\kendo.common.min.css" />
+    <Content Include="styles\kendo.dataviz.black.min.css" />
+    <Content Include="styles\kendo.dataviz.blueopal.min.css" />
+    <Content Include="styles\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="styles\kendo.dataviz.default.min.css" />
+    <Content Include="styles\kendo.dataviz.fiori.min.css" />
+    <Content Include="styles\kendo.dataviz.flat.min.css" />
+    <Content Include="styles\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="styles\kendo.dataviz.material.min.css" />
+    <Content Include="styles\kendo.dataviz.materialblack.min.css" />
+    <Content Include="styles\kendo.dataviz.metro.min.css" />
+    <Content Include="styles\kendo.dataviz.metroblack.min.css" />
+    <Content Include="styles\kendo.dataviz.min.css" />
+    <Content Include="styles\kendo.dataviz.mobile.min.css" />
+    <Content Include="styles\kendo.dataviz.moonlight.min.css" />
+    <Content Include="styles\kendo.dataviz.nova.min.css" />
+    <Content Include="styles\kendo.dataviz.office365.min.css" />
+    <Content Include="styles\kendo.dataviz.silver.min.css" />
+    <Content Include="styles\kendo.dataviz.uniform.min.css" />
+    <Content Include="styles\kendo.default.min.css" />
+    <Content Include="styles\kendo.default.mobile.min.css" />
+    <Content Include="styles\kendo.fiori.min.css" />
+    <Content Include="styles\kendo.fiori.mobile.min.css" />
+    <Content Include="styles\kendo.flat.min.css" />
+    <Content Include="styles\kendo.flat.mobile.min.css" />
+    <Content Include="styles\kendo.highcontrast.min.css" />
+    <Content Include="styles\kendo.highcontrast.mobile.min.css" />
+    <Content Include="styles\kendo.material.min.css" />
+    <Content Include="styles\kendo.material.mobile.min.css" />
+    <Content Include="styles\kendo.materialblack.min.css" />
+    <Content Include="styles\kendo.materialblack.mobile.min.css" />
+    <Content Include="styles\kendo.metro.min.css" />
+    <Content Include="styles\kendo.metro.mobile.min.css" />
+    <Content Include="styles\kendo.metroblack.min.css" />
+    <Content Include="styles\kendo.metroblack.mobile.min.css" />
+    <Content Include="styles\kendo.mobile.all.min.css" />
+    <Content Include="styles\kendo.mobile.android.dark.min.css" />
+    <Content Include="styles\kendo.mobile.android.light.min.css" />
+    <Content Include="styles\kendo.mobile.blackberry.min.css" />
+    <Content Include="styles\kendo.mobile.common.min.css" />
+    <Content Include="styles\kendo.mobile.fiori.min.css" />
+    <Content Include="styles\kendo.mobile.flat.min.css" />
+    <Content Include="styles\kendo.mobile.ios.min.css" />
+    <Content Include="styles\kendo.mobile.material.min.css" />
+    <Content Include="styles\kendo.mobile.meego.min.css" />
+    <Content Include="styles\kendo.mobile.nova.min.css" />
+    <Content Include="styles\kendo.mobile.office365.min.css" />
+    <Content Include="styles\kendo.mobile.wp8.min.css" />
+    <Content Include="styles\kendo.moonlight.min.css" />
+    <Content Include="styles\kendo.moonlight.mobile.min.css" />
+    <Content Include="styles\kendo.nova.min.css" />
+    <Content Include="styles\kendo.nova.mobile.min.css" />
+    <Content Include="styles\kendo.office365.min.css" />
+    <Content Include="styles\kendo.office365.mobile.min.css" />
+    <Content Include="styles\kendo.rtl.min.css" />
+    <Content Include="styles\kendo.silver.min.css" />
+    <Content Include="styles\kendo.silver.mobile.min.css" />
+    <Content Include="styles\kendo.site.min.css" />
+    <Content Include="styles\kendo.uniform.min.css" />
+    <Content Include="styles\kendo.uniform.mobile.min.css" />
+    <Content Include="styles\MaterialBlack\editor.png" />
+    <Content Include="styles\MaterialBlack\imagebrowser.png" />
+    <Content Include="styles\MaterialBlack\indeterminate.gif" />
+    <Content Include="styles\MaterialBlack\loading-image.gif" />
+    <Content Include="styles\MaterialBlack\loading.gif" />
+    <Content Include="styles\MaterialBlack\loading_2x.gif" />
+    <Content Include="styles\MaterialBlack\markers.png" />
+    <Content Include="styles\MaterialBlack\markers_2x.png" />
+    <Content Include="styles\MaterialBlack\slider-h.gif" />
+    <Content Include="styles\MaterialBlack\slider-v.gif" />
+    <Content Include="styles\MaterialBlack\sprite.png" />
+    <Content Include="styles\MaterialBlack\sprite_2x.png" />
+    <Content Include="styles\MaterialBlack\sprite_kpi.png" />
+    <Content Include="styles\MaterialBlack\sprite_kpi_2x.png" />
+    <Content Include="styles\Material\editor.png" />
+    <Content Include="styles\Material\imagebrowser.png" />
+    <Content Include="styles\Material\indeterminate.gif" />
+    <Content Include="styles\Material\loading-image.gif" />
+    <Content Include="styles\Material\loading.gif" />
+    <Content Include="styles\Material\loading_2x.gif" />
+    <Content Include="styles\Material\markers.png" />
+    <Content Include="styles\Material\markers_2x.png" />
+    <Content Include="styles\Material\slider-h.gif" />
+    <Content Include="styles\Material\slider-v.gif" />
+    <Content Include="styles\Material\sprite.png" />
+    <Content Include="styles\Material\sprite_2x.png" />
+    <Content Include="styles\Material\sprite_kpi.png" />
+    <Content Include="styles\Material\sprite_kpi_2x.png" />
+    <Content Include="styles\MetroBlack\editor.png" />
+    <Content Include="styles\MetroBlack\imagebrowser.png" />
+    <Content Include="styles\MetroBlack\indeterminate.gif" />
+    <Content Include="styles\MetroBlack\loading-image.gif" />
+    <Content Include="styles\MetroBlack\loading.gif" />
+    <Content Include="styles\MetroBlack\loading_2x.gif" />
+    <Content Include="styles\MetroBlack\markers.png" />
+    <Content Include="styles\MetroBlack\markers_2x.png" />
+    <Content Include="styles\MetroBlack\slider-h.gif" />
+    <Content Include="styles\MetroBlack\slider-v.gif" />
+    <Content Include="styles\MetroBlack\sprite.png" />
+    <Content Include="styles\MetroBlack\sprite_2x.png" />
+    <Content Include="styles\MetroBlack\sprite_kpi.png" />
+    <Content Include="styles\MetroBlack\sprite_kpi_2x.png" />
+    <Content Include="styles\Metro\editor.png" />
+    <Content Include="styles\Metro\imagebrowser.png" />
+    <Content Include="styles\Metro\indeterminate.gif" />
+    <Content Include="styles\Metro\loading-image.gif" />
+    <Content Include="styles\Metro\loading.gif" />
+    <Content Include="styles\Metro\loading_2x.gif" />
+    <Content Include="styles\Metro\markers.png" />
+    <Content Include="styles\Metro\markers_2x.png" />
+    <Content Include="styles\Metro\slider-h.gif" />
+    <Content Include="styles\Metro\slider-v.gif" />
+    <Content Include="styles\Metro\sprite.png" />
+    <Content Include="styles\Metro\sprite_2x.png" />
+    <Content Include="styles\Metro\sprite_kpi.png" />
+    <Content Include="styles\Metro\sprite_kpi_2x.png" />
+    <Content Include="styles\Moonlight\editor.png" />
+    <Content Include="styles\Moonlight\imagebrowser.png" />
+    <Content Include="styles\Moonlight\indeterminate.gif" />
+    <Content Include="styles\Moonlight\loading-image.gif" />
+    <Content Include="styles\Moonlight\loading.gif" />
+    <Content Include="styles\Moonlight\loading_2x.gif" />
+    <Content Include="styles\Moonlight\markers.png" />
+    <Content Include="styles\Moonlight\markers_2x.png" />
+    <Content Include="styles\Moonlight\slider-h.gif" />
+    <Content Include="styles\Moonlight\slider-v.gif" />
+    <Content Include="styles\Moonlight\sprite.png" />
+    <Content Include="styles\Moonlight\sprite_2x.png" />
+    <Content Include="styles\Moonlight\sprite_kpi.png" />
+    <Content Include="styles\Moonlight\sprite_kpi_2x.png" />
+    <Content Include="styles\Nova\editor.png" />
+    <Content Include="styles\Nova\imagebrowser.png" />
+    <Content Include="styles\Nova\indeterminate.gif" />
+    <Content Include="styles\Nova\loading-image.gif" />
+    <Content Include="styles\Nova\loading.gif" />
+    <Content Include="styles\Nova\loading_2x.gif" />
+    <Content Include="styles\Nova\markers.png" />
+    <Content Include="styles\Nova\markers_2x.png" />
+    <Content Include="styles\Nova\slider-h.gif" />
+    <Content Include="styles\Nova\slider-v.gif" />
+    <Content Include="styles\Nova\sprite.png" />
+    <Content Include="styles\Nova\sprite_2x.png" />
+    <Content Include="styles\Nova\sprite_kpi.png" />
+    <Content Include="styles\Nova\sprite_kpi_2x.png" />
+    <Content Include="styles\Office365\editor.png" />
+    <Content Include="styles\Office365\imagebrowser.png" />
+    <Content Include="styles\Office365\indeterminate.gif" />
+    <Content Include="styles\Office365\loading-image.gif" />
+    <Content Include="styles\Office365\loading.gif" />
+    <Content Include="styles\Office365\loading_2x.gif" />
+    <Content Include="styles\Office365\markers.png" />
+    <Content Include="styles\Office365\markers_2x.png" />
+    <Content Include="styles\Office365\slider-h.gif" />
+    <Content Include="styles\Office365\slider-v.gif" />
+    <Content Include="styles\Office365\sprite.png" />
+    <Content Include="styles\Office365\sprite_2x.png" />
+    <Content Include="styles\Office365\sprite_kpi.png" />
+    <Content Include="styles\Office365\sprite_kpi_2x.png" />
+    <Content Include="styles\Silver\editor.png" />
+    <Content Include="styles\Silver\imagebrowser.png" />
+    <Content Include="styles\Silver\indeterminate.gif" />
+    <Content Include="styles\Silver\loading-image.gif" />
+    <Content Include="styles\Silver\loading.gif" />
+    <Content Include="styles\Silver\loading_2x.gif" />
+    <Content Include="styles\Silver\markers.png" />
+    <Content Include="styles\Silver\markers_2x.png" />
+    <Content Include="styles\Silver\slider-h.gif" />
+    <Content Include="styles\Silver\slider-v.gif" />
+    <Content Include="styles\Silver\sprite.png" />
+    <Content Include="styles\Silver\sprite_2x.png" />
+    <Content Include="styles\Silver\sprite_kpi.png" />
+    <Content Include="styles\Silver\sprite_kpi_2x.png" />
+    <Content Include="styles\textures\brushed-metal.png" />
+    <Content Include="styles\textures\dots1.png" />
+    <Content Include="styles\textures\dots10.png" />
+    <Content Include="styles\textures\dots11.png" />
+    <Content Include="styles\textures\dots12.png" />
+    <Content Include="styles\textures\dots13.png" />
+    <Content Include="styles\textures\dots2.png" />
+    <Content Include="styles\textures\dots3.png" />
+    <Content Include="styles\textures\dots4.png" />
+    <Content Include="styles\textures\dots5.png" />
+    <Content Include="styles\textures\dots6.png" />
+    <Content Include="styles\textures\dots7.png" />
+    <Content Include="styles\textures\dots8.png" />
+    <Content Include="styles\textures\dots9.png" />
+    <Content Include="styles\textures\glass-lighter.png" />
+    <Content Include="styles\textures\glass.png" />
+    <Content Include="styles\textures\highlight.png" />
+    <Content Include="styles\textures\hsv-gradient.png" />
+    <Content Include="styles\textures\hue.png" />
+    <Content Include="styles\textures\leather1.png" />
+    <Content Include="styles\textures\leather2.png" />
+    <Content Include="styles\textures\noise.png" />
+    <Content Include="styles\textures\stripe1.png" />
+    <Content Include="styles\textures\stripe2.png" />
+    <Content Include="styles\textures\stripe3.png" />
+    <Content Include="styles\textures\stripe4.png" />
+    <Content Include="styles\textures\stripe5.png" />
+    <Content Include="styles\textures\stripe6.png" />
+    <Content Include="styles\textures\transparency.png" />
+    <Content Include="styles\textures\transtexture.png" />
+    <Content Include="styles\Uniform\editor.png" />
+    <Content Include="styles\Uniform\imagebrowser.png" />
+    <Content Include="styles\Uniform\indeterminate.gif" />
+    <Content Include="styles\Uniform\loading-image.gif" />
+    <Content Include="styles\Uniform\loading.gif" />
+    <Content Include="styles\Uniform\loading_2x.gif" />
+    <Content Include="styles\Uniform\markers.png" />
+    <Content Include="styles\Uniform\markers_2x.png" />
+    <Content Include="styles\Uniform\slider-h.gif" />
+    <Content Include="styles\Uniform\slider-v.gif" />
+    <Content Include="styles\Uniform\sprite.png" />
+    <Content Include="styles\Uniform\sprite_2x.png" />
+    <Content Include="styles\Uniform\sprite_kpi.png" />
+    <Content Include="styles\Uniform\sprite_kpi_2x.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -371,8 +762,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -395,18 +784,20 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Mail.cshtml" />
+    <Content Include="Views\Home\Success.cshtml" />
+    <Content Include="Views\Home\Fails.cshtml" />
+    <Content Include="Views\Shared\kendo.theme.chooser.cshtml" />
+    <Content Include="Views\Shared\kendo.notification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -443,8 +834,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
