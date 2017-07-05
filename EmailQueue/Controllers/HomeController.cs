@@ -26,15 +26,18 @@ namespace EmailQueue.Controllers
         {
             ViewBag.Message = "Mails are Being sent";
 
+            int[] postData;
+
             myfunctions myqueue = new myfunctions();
 
             Queue<emailQueue> passData = new Queue<emailQueue>();
 
             passData = myqueue.enqueue();
 
-            myqueue.dequeue(passData);
+            postData = myqueue.dequeue(passData);
+            
 
-            return View();
+            return View(postData);
         }
 
         public ActionResult Success()

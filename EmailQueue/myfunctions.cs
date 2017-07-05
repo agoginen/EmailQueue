@@ -31,7 +31,7 @@ namespace EmailQueue
             return orderedRequests;
         }
 
-        public int dequeue(Queue<emailQueue> data)
+        public int[] dequeue(Queue<emailQueue> data)
         {
             var bodySearch = "<div id=\"EBody\">";
 
@@ -47,10 +47,8 @@ namespace EmailQueue
 
             Queue<emailQueue> sentMails = new Queue<emailQueue>();
 
-            int successMessageCount = 0;
-
-            int failMessageCount = 0;
-
+            int[] MessageCount = { 0,0 };
+            
             int totalRequests = data.Count;
 
             emailQueueSuccessfulLogs updateSuccessLog = new emailQueueSuccessfulLogs();
@@ -105,11 +103,11 @@ namespace EmailQueue
                 }
             }
 
-            successMessageCount = sentMails.Count;
+            MessageCount[0] = sentMails.Count;
 
-            failMessageCount = failedMails.Count;
+            MessageCount[1] = failedMails.Count;
 
-            for (int i = 0; i < successMessageCount; i++)
+            for (int i = 0; i < MessageCount[0]; i++)
             {
                 emailQueue currMail = (emailQueue)sentMails.Dequeue();
 
@@ -133,7 +131,7 @@ namespace EmailQueue
 
             }
 
-            for (int i = 0; i < failMessageCount; i++)
+            for (int i = 0; i < MessageCount[1]; i++)
             {
                 emailQueue currMail = (emailQueue)failedMails.Dequeue();
 
@@ -150,7 +148,7 @@ namespace EmailQueue
                 db.SaveChanges();
             }
 
-            return successMessageCount;
+            return MessageCount;
         }
     }
 }
