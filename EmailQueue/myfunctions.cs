@@ -16,10 +16,7 @@ namespace EmailQueue
         {
             db = new DiversityTraxEntities();
  
-            var data = db.emailQueue.Where(x => x.EStatus == "Not Posted").ToList();
-            //var data = db.emailQueues.Where(x => x.EStatus == "Not Posted").Take(30).ToList();
-
-            data.Sort();
+            var data = db.emailQueue.Where(x => x.EstatusId == 0).OrderBy(x => x.EPriority).ToList();
 
             Queue<emailQueue> orderedRequests = new Queue<emailQueue>();
 
@@ -33,13 +30,13 @@ namespace EmailQueue
 
         public int[] dequeue(Queue<emailQueue> data)
         {
-            var bodySearch = "<div id=\"EBody\">";
+            var bodySearch     = "[TemplateBodyHere] ";
 
-            var subjectSearch = "<div id=\"ESubject\">";
+            var subjectSearch  = "[TemplateSubjectHere]";
 
-            var reasonSearch = "<div id=\"EReason\">";
+            var reasonSearch   = "[TemplateReasonHere]";
 
-            var clientName = "<div id=\"EClientName\">";
+            var clientName     = "[TemplateClientName]";
 
             db = new DiversityTraxEntities();
 
@@ -63,20 +60,26 @@ namespace EmailQueue
 
                 presentTemplate = db.Templates.Find(emailDetails.TableId);
 
-                var modifiedBody = presentTemplate.Template_Content.Insert(presentTemplate.Template_Content.IndexOf(bodySearch) + bodySearch.Length, emailDetails.EBody);
+                var modifiedBody = presentTemplate.Template_Content.Replace(bodySearch, emailDetails.EBody);
 
-                modifiedBody = modifiedBody.Insert(presentTemplate.Template_Content.IndexOf(subjectSearch) + subjectSearch.Length, emailDetails.ESubject);
+                modifiedBody = modifiedBody.Replace(subjectSearch, emailDetails.ESubject);
 
-                modifiedBody = modifiedBody.Insert(presentTemplate.Template_Content.IndexOf(reasonSearch) + reasonSearch.Length, emailDetails.EReason);
+                modifiedBody = modifiedBody.Replace(reasonSearch, emailDetails.EReason);
 
-                modifiedBody = modifiedBody.Insert(presentTemplate.Template_Content.IndexOf(clientName) + clientName.Length, emailDetails.EName);
+                modifiedBody = modifiedBody.Replace(clientName, emailDetails.EName);
 
                 MailMessage mail = new MailMessage();
+
                 mail.To.Add(emailDetails.ETo);
+
                 mail.Subject = emailDetails.ESubject;
+
                 mail.Body = modifiedBody;
+
                 mail.IsBodyHtml = true;
+
                 SmtpClient smtp = new SmtpClient();
+
                 smtp.EnableSsl = true;
 
                 try
@@ -111,13 +114,13 @@ namespace EmailQueue
             {
                 emailQueue currMail = (emailQueue)sentMails.Dequeue();
 
-                currMail.EStatus = "Posted";
+                currMail.EstatusId= 1;
 
                 updateSuccessLog.ETo = currMail.ETo;
 
-                updateSuccessLog.EDate = currMail.EDate;
+                updateSuccessLog.EDate = DateTime.Today;
 
-                updateSuccessLog.ETime = currMail.ETime;
+                updateSuccessLog.ETime = DateTime.Now.TimeOfDay;
 
                 updateSuccessLog.Tries = currMail.Tries;
 
@@ -128,7 +131,6 @@ namespace EmailQueue
                 db.emailQueueSuccessfulLogs.Add(updateSuccessLog);
 
                 db.SaveChanges();
-
             }
 
             for (int i = 0; i < MessageCount[1]; i++)
@@ -137,9 +139,9 @@ namespace EmailQueue
 
                 updatefailedLog.ETo = currMail.ETo;
 
-                updatefailedLog.EDate = currMail.EDate;
+                updatefailedLog.EDate = DateTime.Today;
 
-                updatefailedLog.ETime = currMail.ETime;
+                updatefailedLog.ETime = DateTime.Now.TimeOfDay;
 
                 updatefailedLog.Tries = currMail.Tries;
 

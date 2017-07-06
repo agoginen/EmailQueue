@@ -23,6 +23,7 @@
           <Property Name="TableId" Type="int" />
           <Property Name="EReason" Type="nvarchar" MaxLength="50" />
           <Property Name="EName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EstatusId" Type="int" />
         </EntityType>
         <EntityType Name="emailQueueFailedLog">
           <Key>
@@ -114,6 +115,7 @@
           <Property Name="TableId" Type="Int32" />
           <Property Name="EReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EstatusId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -155,6 +157,7 @@
           <EntitySetMapping Name="emailQueue">
             <EntityTypeMapping TypeName="DiversityTraxModel.emailQueue">
               <MappingFragment StoreEntitySet="emailQueue">
+                <ScalarProperty Name="EstatusId" ColumnName="EstatusId" />
                 <ScalarProperty Name="EName" ColumnName="EName" />
                 <ScalarProperty Name="EReason" ColumnName="EReason" />
                 <ScalarProperty Name="TableId" ColumnName="TableId" />
