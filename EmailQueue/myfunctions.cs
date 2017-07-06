@@ -28,9 +28,9 @@ namespace EmailQueue
             return orderedRequests;
         }
 
-        public int[] dequeue(Queue<emailQueue> data)
+        public int dequeue(Queue<emailQueue> data)
         {
-            var bodySearch     = "[TemplateBodyHere] ";
+            var bodySearch     = "[TemplateBodyHere]";
 
             var subjectSearch  = "[TemplateSubjectHere]";
 
@@ -114,15 +114,17 @@ namespace EmailQueue
             {
                 emailQueue currMail = (emailQueue)sentMails.Dequeue();
 
-                currMail.EstatusId= 1;
+                currMail.EstatusId = 1;
 
-                updateSuccessLog.ETo = currMail.ETo;
+                currMail.EStatus         = "Posted";
 
-                updateSuccessLog.EDate = DateTime.Today;
+                updateSuccessLog.ETo     = currMail.ETo;
 
-                updateSuccessLog.ETime = DateTime.Now.TimeOfDay;
+                updateSuccessLog.EDate   = DateTime.Today;
 
-                updateSuccessLog.Tries = currMail.Tries;
+                updateSuccessLog.ETime   = DateTime.Now.TimeOfDay;
+
+                updateSuccessLog.Tries   = currMail.Tries;
 
                 db.Entry(currMail).State = EntityState.Modified;
 
@@ -135,9 +137,9 @@ namespace EmailQueue
 
             for (int i = 0; i < MessageCount[1]; i++)
             {
-                emailQueue currMail = (emailQueue)failedMails.Dequeue();
+                emailQueue currMail   = (emailQueue)failedMails.Dequeue();
 
-                updatefailedLog.ETo = currMail.ETo;
+                updatefailedLog.ETo   = currMail.ETo;
 
                 updatefailedLog.EDate = DateTime.Today;
 
@@ -150,7 +152,7 @@ namespace EmailQueue
                 db.SaveChanges();
             }
 
-            return MessageCount;
+            return MessageCount[0];
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿@model IEnumerable<EmailQueue.Models.emailQueueSuccessfulLogs>
+﻿@using EmailQueue.Models;
+
+@model IEnumerable<EmailQueue.Models.emailQueueSuccessfulLogs>
 
 @{
     ViewBag.Title = "Success";
 }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>

@@ -10,6 +10,6 @@ namespace EmailQueue.Models
     {
         Queue<emailQueue> enqueue();
 
-        int[] dequeue(Queue<emailQueue> data);
+        int dequeue(Queue<emailQueue> data);
     }
 }

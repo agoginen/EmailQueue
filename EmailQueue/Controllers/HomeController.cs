@@ -22,9 +22,9 @@ namespace EmailQueue.Controllers
 
         public ActionResult Mail()
         {
-            ViewBag.Message = "Mails are Being sent";
+            ViewBag.Message = "Mails are sent";
 
-            int[] postData;
+            int postData;
 
             myfunctions myqueue = new myfunctions();
 
