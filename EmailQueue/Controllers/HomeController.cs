@@ -40,12 +40,20 @@ namespace EmailQueue.Controllers
 
         public ActionResult Success()
         {
-            return View();
+            db = new DiversityTraxEntities();
+
+            var data = db.emailQueueSuccessfulLogs.ToList();
+
+            return View(data);
         }
 
         public ActionResult Fails()
         {
-            return View();
+            db = new DiversityTraxEntities();
+
+            var data = db.emailQueueFailedLog.ToList();
+
+            return View(data);
         }
     }
 }
